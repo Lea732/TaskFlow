@@ -6,10 +6,19 @@
   font-family: var(--font);
 }
 
-.home > h1 {
+.home > input {
+  height: 5vh;
   text-align: center;
   margin: 1rem;
-  letter-spacing: 0.7rem;
+  border: none;
+  min-width: 60vw;
+  letter-spacing: 0.3rem;
+}
+
+.home > input:focus {
+  border: 1px solid var(--first-color);
+  outline: none;
+  border-radius: 10px;
 }
 
 .home > img {
