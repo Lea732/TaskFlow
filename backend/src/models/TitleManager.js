@@ -1,19 +1,19 @@
 const AbstractManager = require("./AbstractManager");
 
-class ChecklistManager extends AbstractManager {
+class TitleManager extends AbstractManager {
   constructor() {
     // Call the constructor of the parent class (AbstractManager)
     // and pass the table name "item" as configuration
-    super({ table: "checklist" });
+    super({ table: "title" });
   }
 
   // The C of CRUD - Create operation
 
-  async create(checklist) {
+  async create(title) {
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (item) values (?)`,
-      [checklist.item]
+      `insert into ${this.table} (title) values (?)`,
+      [title.title]
     );
 
     // Return the ID of the newly inserted item
@@ -43,10 +43,10 @@ class ChecklistManager extends AbstractManager {
 
   // The U of CRUD - Update operation
 
-  async update(checklist) {
+  async update(title) {
     const [rows] = await this.database.query(
-      `UPDATE ${this.table} SET item=?, title_id=? WHERE id=?`,
-      [checklist.item, checklist.title_id, checklist.id]
+      `UPDATE ${this.table} SET title=? WHERE id=?`,
+      [title.title, title.id]
     );
     return rows;
   }
@@ -61,4 +61,4 @@ class ChecklistManager extends AbstractManager {
   }
 }
 
-module.exports = ChecklistManager;
+module.exports = TitleManager;

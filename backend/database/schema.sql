@@ -1,4 +1,12 @@
-create table checklist (
-  id int primary key auto_increment not null,
-  title varchar(100)
+CREATE TABLE title (
+  id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  title VARCHAR(100),
+  UNIQUE (title)
+);
+
+CREATE TABLE checklist (
+  id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  item VARCHAR(100),
+  title_id INT,
+  FOREIGN KEY (title_id) REFERENCES title(id)
 );
