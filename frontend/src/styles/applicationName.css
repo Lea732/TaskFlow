@@ -1,0 +1,9 @@
+.welcome_page > h1,
+.home > h1 {
+  font-family: var(--font);
+  font-size: 2.5rem;
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: 0.4rem;
+  margin: 3rem 0 1.5rem 0;
+}

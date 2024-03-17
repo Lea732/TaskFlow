@@ -1,0 +1,52 @@
+.welcome_page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  width: 100vw;
+  height: 100vh;
+}
+
+.welcome_page > img {
+  width: 18.125rem;
+  height: 17.94rem;
+  border-radius: 143.5px;
+  margin: 5rem 0;
+}
+
+.welcome_page > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20vh;
+  margin-top: 2rem;
+}
+
+.welcome_page > div > button {
+  height: 5rem;
+  width: 17.5rem;
+  border-radius: 40px;
+  font-family: var(--font);
+  font-size: 2rem;
+  border: none;
+}
+
+.welcome_page > div > .login {
+  background: linear-gradient(
+    #f7f4ef 20%,
+    #f7f2ec 40%,
+    #f6f0e9 40%,
+    #e6ded7 80%,
+    #dbd1be
+  );
+}
+
+.welcome_page > div > .register {
+  background: linear-gradient(
+    #f4e6bf,
+    #f2dfb0 40%,
+    #ebd6a0 50%,
+    #e3cc91 60%,
+    #9d8666
+  );
+}
