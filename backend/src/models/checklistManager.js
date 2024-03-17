@@ -12,8 +12,8 @@ class ChecklistManager extends AbstractManager {
   async create(checklist) {
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (item) values (?)`,
-      [checklist.item]
+      `insert into ${this.table} (item, title_id) values (?, ?)`,
+      [checklist.item, checklist.title_id]
     );
 
     // Return the ID of the newly inserted item

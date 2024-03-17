@@ -6,21 +6,6 @@
   font-family: var(--font);
 }
 
-.home > input {
-  height: 5vh;
-  text-align: center;
-  margin: 1rem;
-  border: none;
-  min-width: 60vw;
-  letter-spacing: 0.3rem;
-}
-
-.home > input:focus {
-  border: 1px solid var(--first-color);
-  outline: none;
-  border-radius: 10px;
-}
-
 .home > img {
   width: 90vw;
   border-radius: 20px;
