@@ -1,13 +1,13 @@
-import React from "react";
+import ChecklistTitle from "../components/ChecklistTitle";
 
 import "../styles/home.css";
 
 function Home() {
   return (
     <div className="home">
-      <h1>HOME</h1>
+      <ChecklistTitle />
       <img
-        src="https://source.unsplash.com/random/70×50/?landscape"
+        src="https://source.unsplash.com/random/390×250/?landscape"
         alt="random landscape"
       />
     </div>

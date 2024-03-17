@@ -6,12 +6,6 @@
   font-family: var(--font);
 }
 
-.home > h1 {
-  text-align: center;
-  margin: 1rem;
-  letter-spacing: 0.7rem;
-}
-
 .home > img {
   width: 90vw;
   border-radius: 20px;
