@@ -1,4 +1,5 @@
 .welcome_page > h1,
+.login > h1,
 .home > h1 {
   font-family: var(--font);
   font-size: 2.5rem;

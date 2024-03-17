@@ -22,7 +22,7 @@
   margin-top: 2rem;
 }
 
-.welcome_page > div > button {
+.welcome_page > div > a > button {
   height: 5rem;
   width: 17.5rem;
   border-radius: 40px;
@@ -31,7 +31,7 @@
   border: none;
 }
 
-.welcome_page > div > .login {
+.welcome_page > div > a > .login {
   background: linear-gradient(
     #f7f4ef 20%,
     #f7f2ec 40%,
@@ -41,7 +41,7 @@
   );
 }
 
-.welcome_page > div > .register {
+.welcome_page > div > a > .register {
   background: linear-gradient(
     #f4e6bf,
     #f2dfb0 40%,

@@ -2,8 +2,10 @@
 
 :root {
   --font: "Cardo, sans serif";
+  --register-login-input: #faf9f8;
   --input-color: #efe7e1;
   --first-color: #d1c2b6;
+  --form-desktop: #d3c6bd;
 }
 
 * {
