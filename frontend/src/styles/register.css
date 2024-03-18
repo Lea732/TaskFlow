@@ -89,17 +89,16 @@
     align-items: center;
     justify-content: center;
     width: 100vw;
-    margin-top: 2rem;
   }
 
   .register > div > form {
     width: 38vw;
-    height: 55vh;
-    padding: 4rem 0 4rem 0;
+    height: 65vh;
+    padding: 2rem 0 2rem 0;
     border-radius: 20px 0 0 20px;
     margin: 2rem 0 2rem 0;
     box-shadow: -8px 0px 20px var(--first-color);
-    background-color: var(--form-desktop);
+    background-color: var(--register-form-desktop);
   }
 
   .register > div > form > div > label,
@@ -110,7 +109,7 @@
   .register > div > img {
     display: flex;
     width: 40vw;
-    height: 70vh;
+    height: 75vh;
     border-radius: 20px;
   }
 }

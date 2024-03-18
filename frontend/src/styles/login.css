@@ -100,7 +100,7 @@
     border-radius: 20px 0 0 20px;
     margin: 2rem 0 2rem 0;
     box-shadow: -8px 0px 20px var(--first-color);
-    background-color: var(--form-desktop);
+    background-color: var(--login-form-desktop);
   }
 
   .login > div > form > div > label,

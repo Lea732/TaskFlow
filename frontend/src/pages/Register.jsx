@@ -52,7 +52,7 @@ function Register() {
             <button type="button">Register</button>
           </Link>
 
-          <p className="desktop_register">
+          <p>
             Don't have an account ?&nbsp;
             <Link to="/login">Log In</Link>
           </p>
