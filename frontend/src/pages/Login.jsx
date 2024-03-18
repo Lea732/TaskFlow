@@ -34,13 +34,13 @@ function Login() {
             <button type="button">Log in</button>
           </Link>
 
-          <p className="desktop_register">
+          <p>
             Don't have an account ?&nbsp;
             <Link to="/register">Register</Link>
           </p>
         </form>
 
-        <img src="src/assets/register_desktop.png" alt="A vase" />
+        <img src="src/assets/login_desktop.png" alt="A vase" />
       </div>
     </div>
   );

@@ -1,3 +1,116 @@
-div {
+.register {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font);
+}
+
+.register > h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 2rem 0;
+}
+
+.register > div > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 80vw;
+  height: 73vh;
+  background-color: var(--first-color);
+  border-radius: 20px;
+}
+
+.register > div > form > div {
+  display: flex;
+  flex-direction: column;
+  margin: 0.8rem;
+}
+
+.register > div > form > div > label {
+  font-size: 1.5rem;
+  width: 70vw;
+}
+
+.register > div > form > div > input {
+  background-color: var(--register-login-input);
+  width: 70vw;
+  height: 3.8rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 1rem;
+  border-radius: 20px;
+  border: 1px solid var(--first-color);
+}
+
+.register > div > form > div > input::placeholder {
+  color: rgb(197, 197, 197);
+}
+
+.register > div > form > a {
+  text-decoration: none;
+}
+
+.register > div > form > a > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 11rem;
+  height: 2.75rem;
+  margin: 1rem;
+  padding: 0.7rem;
+  background-color: var(--register-login-input);
+  font-family: var(--font);
+  font-size: 1.5rem;
+  border-radius: 30px;
+  border: none;
+}
+
+.register > div > form > p {
+  font-size: 1rem;
+}
+
+.register > div > form > p > a {
+  text-decoration: underline;
+  color: #000000;
+  font-weight: 600;
+}
+
+.register > div > img {
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+  .register > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    margin-top: 2rem;
+  }
+
+  .register > div > form {
+    width: 38vw;
+    height: 55vh;
+    padding: 4rem 0 4rem 0;
+    border-radius: 20px 0 0 20px;
+    margin: 2rem 0 2rem 0;
+    box-shadow: -8px 0px 20px var(--first-color);
+    background-color: var(--form-desktop);
+  }
+
+  .register > div > form > div > label,
+  .register > div > form > div > input {
+    width: 30vw;
+  }
+
+  .register > div > img {
+    display: flex;
+    width: 40vw;
+    height: 70vh;
+    border-radius: 20px;
+  }
 }

@@ -90,11 +90,12 @@
     align-items: center;
     justify-content: center;
     width: 100vw;
-    margin-bottom: 2rem;
+    margin-top: 2rem;
   }
 
   .login > div > form {
-    width: 40vw;
+    width: 38vw;
+    height: 55vh;
     padding: 4rem 0 4rem 0;
     border-radius: 20px 0 0 20px;
     margin: 2rem 0 2rem 0;
@@ -110,7 +111,7 @@
   .login > div > img {
     display: flex;
     width: 40vw;
-    height: 75vh;
+    height: 70vh;
     border-radius: 20px;
   }
 }
