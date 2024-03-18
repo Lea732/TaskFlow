@@ -10,7 +10,7 @@
   min-width: 60vw;
   margin: 1rem;
   outline: none;
-  letter-spacing: 0.3rem;
+  letter-spacing: 0.1rem;
   background-color: var(--input-color);
   border: 1px solid var(--first-color);
   border-radius: 20px;

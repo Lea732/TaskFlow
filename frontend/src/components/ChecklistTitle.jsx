@@ -16,6 +16,10 @@ function ChecklistTitle() {
     setUnlock(!unlock);
   };
 
+  const handleDeleteTitle = () => {
+    setTitle("");
+  };
+
   // const sendDataToBackend = async () => {
   //   try {
   //     await addTitle({ title });
@@ -41,7 +45,7 @@ function ChecklistTitle() {
         >
           {" . "}
         </button>
-        <button type="button" className="delete">
+        <button type="button" className="delete" onClick={handleDeleteTitle}>
           {" . "}
         </button>
       </div>
