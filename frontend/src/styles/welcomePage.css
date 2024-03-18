@@ -22,7 +22,14 @@
   margin-top: 2rem;
 }
 
+.welcome_page > div > a {
+  text-decoration: none;
+}
+
 .welcome_page > div > a > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 5rem;
   width: 17.5rem;
   border-radius: 40px;
@@ -49,4 +56,13 @@
     #e3cc91 60%,
     #9d8666
   );
+}
+
+@media screen and (min-width: 600px) {
+  .welcome_page > img {
+    width: 25rem;
+    height: 24.5rem;
+    border-radius: 600px;
+    margin: 5rem 0;
+  }
 }

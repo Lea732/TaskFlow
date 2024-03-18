@@ -40,10 +40,7 @@ function Login() {
           </p>
         </form>
 
-        <img
-          src="src/assets/register_desktop.png"
-          alt="person pouring salt on a dish"
-        />
+        <img src="src/assets/register_desktop.png" alt="A vase" />
       </div>
     </div>
   );
