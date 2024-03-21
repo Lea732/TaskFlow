@@ -8,5 +8,6 @@
 
 .home > img {
   width: 90vw;
+  height: 25vh;
   border-radius: 20px;
 }

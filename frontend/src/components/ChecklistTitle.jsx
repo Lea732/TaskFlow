@@ -33,6 +33,7 @@ function ChecklistTitle() {
     <div className="checklist_title">
       <input
         placeholder="Your checklist name"
+        type="text"
         className={unlock ? "" : "disabled"}
         value={title}
         onChange={handleChangeTitle}
