@@ -8,7 +8,7 @@ function AddButton() {
   const [items, setItems] = useState([]);
 
   const handleAddButtonClick = () => {
-    const newItem = <ListItem key={items.length} />;
+    const newItem = <ListItem />;
     setItems([...items, newItem]);
   };
 
@@ -17,9 +17,9 @@ function AddButton() {
       <button type="button" onClick={handleAddButtonClick}>
         + Add
       </button>
-      <ListItem />
-      {items.map((item) => (
-        <div key={items.length}>{item}</div>
+      {items.map((item, index) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <div key={index}>{item}</div>
       ))}
     </div>
   );
