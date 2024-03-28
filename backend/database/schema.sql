@@ -11,3 +11,9 @@ CREATE TABLE checklist (
   PRIMARY KEY(id),
   FOREIGN KEY (title_id) REFERENCES title(id)
 );
+
+-- INSERT INTO title (title) VALUES ('My first checklist');
+
+-- INSERT INTO checklist (title_id, item) VALUES (1, 'Do the chores');
+-- INSERT INTO checklist (title_id, item) VALUES (1, 'Make dentist appointment');
+-- INSERT INTO checklist (title_id, item) VALUES (1, 'Get a refund on the paint');

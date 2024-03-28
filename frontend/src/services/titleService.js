@@ -7,9 +7,9 @@ const client = axios.create({
   timeout: 60_000,
 });
 
-const addTitle = (checlistTitle) => {
+const addTitle = (checklistTitle) => {
   client
-    .post("/title", checlistTitle)
+    .post("/title", checklistTitle)
     .then((response) => console.info(response))
     .catch((error) => console.error(error));
 };
