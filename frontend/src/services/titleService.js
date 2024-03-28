@@ -7,11 +7,16 @@ const client = axios.create({
   timeout: 60_000,
 });
 
-const addTitle = (checklistTitle) => {
-  client
+export const addTitle = (checklistTitle) => {
+  return client
     .post("/title", checklistTitle)
     .then((response) => console.info(response))
     .catch((error) => console.error(error));
 };
 
-export default addTitle;
+export const deleteTitle = (id) => {
+  return client
+    .delete(`/title/${id}`)
+    .then((response) => console.info(response))
+    .catch((error) => console.error(error));
+};

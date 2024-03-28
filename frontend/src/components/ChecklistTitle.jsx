@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import addTitle from "../services/titleService";
+import { addTitle, deleteTitle } from "../services/titleService";
 
 import "../styles/checklistTitle.css";
 
@@ -32,13 +32,24 @@ function ChecklistTitle() {
 
   const handleClickUnlock = () => {
     setUnlock(!unlock);
-    if (!unlock) {
+    if (unlock) {
       createTitle();
+    }
+  };
+
+  const removeTitle = async () => {
+    try {
+      await deleteTitle(title);
+      // erreur pour title
+      console.info("Réponse du serveur: envoyé");
+    } catch (error) {
+      console.error("Erreur lors de l'envoi des données au serveur:", error);
     }
   };
 
   const handleDeleteTitle = () => {
     setTitle("");
+    removeTitle();
     localStorage.removeItem("checklistTitle");
   };
 
