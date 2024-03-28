@@ -69,3 +69,24 @@
 .home > .list_item > div > div > div > div > .delete {
   background-image: url("../assets/delete.png");
 }
+
+@media screen and (min-width: 600px) {
+  .home > .list_item > div > div > div {
+    margin: 2rem 0;
+  }
+
+  .home > .list_item > div > div > div > .item,
+  .home > .list_item > div > div > div > .disabled {
+    min-height: 5vh;
+  }
+
+  .home > .list_item > div > div > div > div {
+    width: 10vw;
+  }
+
+  .home > .list_item > div > div > div > div > .unlocked,
+  .home > .list_item > div > div > div > div > .locked,
+  .home > .list_item > div > div > div > div > .delete {
+    width: 2vw;
+  }
+}
