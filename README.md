@@ -1,3 +1,12 @@
+### Purpose 
+
+This is a fullstack school project. A final exam which aims to assess the skills acquired during the course (frontend, MySQL, backend).
+
+### Media querie
+
+This app is mobile first, frame used : iPhone 14 Pro Max.
+Desktop : 1440 x 1024.
+
 ## Concept
 
 This template is meant to serve as a foundation for every P2/P3 following the React-Express-MySQL stack, as learned in Wild Code School.
