@@ -39,8 +39,8 @@ function ChecklistTitle() {
 
   const removeTitle = async () => {
     try {
-      await deleteTitle(title);
-      // erreur pour title
+      await deleteTitle({ title });
+      // titre bug
       console.info("Réponse du serveur: envoyé");
     } catch (error) {
       console.error("Erreur lors de l'envoi des données au serveur:", error);
