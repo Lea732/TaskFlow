@@ -28,9 +28,9 @@ export const readItemById = () => {
     .catch((error) => console.error(error));
 };
 
-export const updateItem = ({ item }) => {
+export const updateItem = ({ id, item }) => {
   return client
-    .put(`/checklistItem/1`, { item })
+    .put(`/checklist/${id}`, { item })
     .then((response) => response.data)
     .catch((error) => console.error(error));
 };

@@ -38,17 +38,13 @@ const read = async (req, res, next) => {
 const edit = async (req, res, next) => {
   const checklistInfos = {
     item: req.body.item,
-    title_id: req.body.title_id,
     id: req.params.id,
   };
 
   try {
     const result = await tables.checklist.update(checklistInfos);
-    if (result.affectedRows === 0) {
-      res.status(404).json({ msg: "item introuvable" });
-    } else {
-      res.json({ msg: "item modifié avec succès" });
-    }
+
+    res.json({ result, msg: "item modifié avec succès" });
   } catch (err) {
     next(err);
   }

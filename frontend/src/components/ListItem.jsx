@@ -2,21 +2,27 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
 
-import { deleteItem } from "../services/checklistService";
+import { updateItem, deleteItem } from "../services/checklistService";
 
 import "../styles/listItem.css";
 
 function ListItem({ items }) {
-  const [unlock, setUnlock] = useState(true);
-  const [listItem, setListItem] = useState("");
+  const [listItem, setListItem] = useState({});
   const [isVisible, setIsVisible] = useState(true);
 
   const handleChangeItem = (event) => {
-    setListItem(event.target.value);
+    const newItem = event.target.value;
+    setListItem(newItem);
   };
 
-  const handleClickUnlock = () => {
-    setUnlock(!unlock);
+  const modifyItem = async () => {
+    try {
+      console.info("items avant l'appel à updateTitle :", { listItem });
+      const response = await updateItem({ id: items.id, item: listItem });
+      console.info("Réponse du serveur:", response);
+    } catch (error) {
+      console.error("Erreur lors de l'envoi des données au serveur:", error);
+    }
   };
 
   const handleDeleteTitle = () => {
@@ -33,16 +39,17 @@ function ListItem({ items }) {
           <input
             placeholder="A thing you have to do is ..."
             type="text"
-            className={unlock ? "item" : "disabled"}
-            value={items.item}
+            className="item"
+            defaultValue={
+              items !== undefined ? items.item : "Your checklist name"
+            }
             onChange={handleChangeItem}
           />
           <div>
-            <button
-              type="button"
-              onClick={handleClickUnlock}
-              className={unlock ? "unlocked" : "locked"}
-            >
+            <button type="button" className="unlocked">
+              {" . "}
+            </button>
+            <button type="button" onClick={modifyItem} className="locked">
               {" . "}
             </button>
             <button
