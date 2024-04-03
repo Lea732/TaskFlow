@@ -7,7 +7,7 @@ import "../styles/checklistTitle.css";
 function ChecklistTitle() {
   // eslint-disable-next-line no-unused-vars
   // const [unlock, setUnlock] = useState(true);
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState({});
 
   const handleChangeTitle = (event) => {
     const newTitle = event.target.value;
@@ -26,10 +26,9 @@ function ChecklistTitle() {
 
   const modifyTitle = async () => {
     try {
-      if (title && title.title) {
-        await updateTitle(title); // Passer directement title
-        console.info("Réponse du serveur: envoyé", title.title);
-      }
+      console.info("Title avant l'appel à updateTitle :", { title });
+      await updateTitle({ title });
+      console.info("Réponse du serveur: envoyé", { title });
     } catch (error) {
       console.error("Erreur lors de l'envoi des données au serveur:", error);
     }

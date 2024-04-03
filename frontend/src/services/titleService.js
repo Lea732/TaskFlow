@@ -28,9 +28,9 @@ export const readTitleById = () => {
     .catch((error) => console.error(error));
 };
 
-export const updateTitle = (title) => {
+export const updateTitle = ({ title }) => {
   return client
-    .put(`/title/1`, title)
+    .put(`/title/1`, { title })
     .then((response) => response.data)
     .catch((error) => console.error(error));
 };
