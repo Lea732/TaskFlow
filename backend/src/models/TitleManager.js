@@ -48,7 +48,7 @@ class TitleManager extends AbstractManager {
       `UPDATE ${this.table} SET title=? WHERE id=?`,
       [title.title, title.id]
     );
-    return rows;
+    return rows[0];
   }
 
   // The D of CRUD - Delete operation
