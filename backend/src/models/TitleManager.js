@@ -52,13 +52,6 @@ class TitleManager extends AbstractManager {
   }
 
   // The D of CRUD - Delete operation
-  async destroy(id) {
-    const [rows] = await this.database.query(
-      `DELETE FROM ${this.table} WHERE id=?`,
-      [id]
-    );
-    return rows;
-  }
 }
 
 module.exports = TitleManager;
