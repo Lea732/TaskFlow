@@ -17,8 +17,7 @@
   border-radius: 5px;
 }
 
-.home > .list_item > div > div > .item,
-.home > .list_item > div > div > .disabled {
+.home > .list_item > div > div > .item {
   text-align: center;
   font-family: var(--font);
   font-size: 1rem;
@@ -30,11 +29,6 @@
   border: 1px solid var(--first-color);
   border-radius: 20px;
   box-shadow: 0px 3px 10px var(--first-color);
-}
-
-.home > .list_item > div > div > .disabled {
-  pointer-events: none;
-  border: none;
 }
 
 .home > .list_item > div > div > .item:focus {
@@ -75,8 +69,7 @@
     margin: 2rem 0;
   }
 
-  .home > .list_item > div > div > .item,
-  .home > .list_item > div > div > .disabled {
+  .home > .list_item > div > div > .item {
     min-height: 5vh;
   }
 

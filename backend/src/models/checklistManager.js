@@ -45,8 +45,8 @@ class ChecklistManager extends AbstractManager {
 
   async update(checklist) {
     const [rows] = await this.database.query(
-      `UPDATE ${this.table} SET item=?, title_id=? WHERE id=?`,
-      [checklist.item, checklist.title_id, checklist.id]
+      `UPDATE ${this.table} SET item=? WHERE id=?`,
+      [checklist.item, checklist.id]
     );
     return rows;
   }
