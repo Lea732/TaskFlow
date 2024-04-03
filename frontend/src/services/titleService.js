@@ -21,29 +21,27 @@ export const readTitle = () => {
     .catch((error) => console.error(error));
 };
 
-export const readTitleById = (id) => {
+export const readTitleById = () => {
   return client
-    .get(`/title/${id}`)
+    .get(`/title/1`)
     .then((response) => response.data)
     .catch((error) => console.error(error));
 };
 
-export const updateTitle = (id, title) => {
+export const updateTitle = (title) => {
   return client
-    .put(`/title/${id}`, title)
-    .then((response) => console.info(response))
+    .put(`/title/1`, title)
+    .then((response) => response.data)
     .catch((error) => console.error(error));
 };
 
-export const deleteTitle = (id) => {
+export const deleteTitle = () => {
   return client
-    .delete(`/title/${id}`)
+    .delete(`/title/1`)
     .then((response) => {
       console.info("Title deleted successfully:", response.data);
-      return response.data;
     })
     .catch((error) => {
       console.error("Error deleting title:", error);
-      throw error;
     });
 };

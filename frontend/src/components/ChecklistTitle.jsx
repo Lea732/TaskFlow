@@ -1,76 +1,63 @@
 import React, { useState, useEffect } from "react";
 
-import { addTitle, deleteTitle } from "../services/titleService";
+import { addTitle, readTitleById, updateTitle } from "../services/titleService";
 
 import "../styles/checklistTitle.css";
 
 function ChecklistTitle() {
-  const [unlock, setUnlock] = useState(true);
+  // eslint-disable-next-line no-unused-vars
+  // const [unlock, setUnlock] = useState(true);
   const [title, setTitle] = useState("");
-
-  useEffect(() => {
-    const storedTitle = localStorage.getItem("checklistTitle");
-    if (storedTitle) {
-      setTitle(storedTitle);
-    }
-  }, []);
 
   const handleChangeTitle = (event) => {
     const newTitle = event.target.value;
     setTitle(newTitle);
-    localStorage.setItem("checklistTitle", newTitle);
+    console.info("new title :", newTitle);
   };
 
   const createTitle = async () => {
     try {
       await addTitle({ title });
-      console.info("Réponse du serveur: envoyé");
+      console.info("Réponse du serveur: envoyé", { title });
     } catch (error) {
       console.error("Erreur lors de l'envoi des données au serveur:", error);
     }
   };
 
-  const handleClickUnlock = () => {
-    setUnlock(!unlock);
-    if (unlock) {
-      createTitle();
-    }
-  };
-
-  const removeTitle = async () => {
+  const modifyTitle = async () => {
     try {
-      await deleteTitle({ title });
-      // titre bug
-      console.info("Réponse du serveur: envoyé");
+      if (title && title.title) {
+        await updateTitle(title); // Passer directement title
+        console.info("Réponse du serveur: envoyé", title.title);
+      }
     } catch (error) {
       console.error("Erreur lors de l'envoi des données au serveur:", error);
     }
   };
 
-  const handleDeleteTitle = () => {
-    setTitle("");
-    removeTitle();
-    localStorage.removeItem("checklistTitle");
-  };
+  useEffect(() => {
+    readTitleById()
+      .then((data) => {
+        setTitle(data);
+        console.info("réponse du get :", data);
+      })
+      .catch((error) => console.error("Error fetching title:", error));
+  }, []);
 
   return (
     <div className="checklist_title">
       <input
         placeholder="Your checklist name"
         type="text"
-        className={unlock ? "" : "disabled"}
-        value={title}
+        // className={!unlock ? "disabled" : ""}
+        value={title !== undefined ? title.title : "Your checklist name"}
         onChange={handleChangeTitle}
       />
       <div>
-        <button
-          type="button"
-          onClick={handleClickUnlock}
-          className={unlock ? "unlocked" : "locked"}
-        >
+        <button type="button" onClick={createTitle} className="unlocked">
           {" . "}
         </button>
-        <button type="button" className="delete" onClick={handleDeleteTitle}>
+        <button type="button" onClick={modifyTitle} className="locked">
           {" . "}
         </button>
       </div>

@@ -43,11 +43,8 @@ const edit = async (req, res, next) => {
 
   try {
     const result = await tables.title.update(titleInfos);
-    if (result.affectedRows === 0) {
-      res.status(404).json({ msg: "titre introuvable" });
-    } else {
-      res.json({ msg: "titre modifié avec succès" });
-    }
+
+    res.json({ result, msg: "titre modifié avec succès" });
   } catch (err) {
     next(err);
   }
