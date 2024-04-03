@@ -5,8 +5,6 @@ import { addTitle, readTitleById, updateTitle } from "../services/titleService";
 import "../styles/checklistTitle.css";
 
 function ChecklistTitle() {
-  // eslint-disable-next-line no-unused-vars
-  // const [unlock, setUnlock] = useState(true);
   const [title, setTitle] = useState({});
 
   const handleChangeTitle = (event) => {
@@ -48,7 +46,6 @@ function ChecklistTitle() {
       <input
         placeholder="Your checklist name"
         type="text"
-        // className={!unlock ? "disabled" : ""}
         value={title !== undefined ? title.title : "Your checklist name"}
         onChange={handleChangeTitle}
       />

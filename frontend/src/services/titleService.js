@@ -35,13 +35,13 @@ export const updateTitle = ({ title }) => {
     .catch((error) => console.error(error));
 };
 
-export const deleteTitle = () => {
-  return client
-    .delete(`/title/1`)
-    .then((response) => {
-      console.info("Title deleted successfully:", response.data);
-    })
-    .catch((error) => {
-      console.error("Error deleting title:", error);
-    });
-};
+// export const deleteTitle = () => {
+//   return client
+//     .delete(`/title/1`)
+//     .then((response) => {
+//       console.info("Title deleted successfully:", response.data);
+//     })
+//     .catch((error) => {
+//       console.error("Error deleting title:", error);
+//     });
+// };
