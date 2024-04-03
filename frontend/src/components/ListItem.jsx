@@ -2,6 +2,8 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
 
+import { deleteItem } from "../services/checklistService";
+
 import "../styles/listItem.css";
 
 function ListItem({ items }) {
@@ -20,6 +22,7 @@ function ListItem({ items }) {
   const handleDeleteTitle = () => {
     setListItem("");
     setIsVisible(!isVisible);
+    deleteItem(items.id);
   };
 
   return (

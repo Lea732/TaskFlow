@@ -35,9 +35,9 @@ export const updateItem = ({ item }) => {
     .catch((error) => console.error(error));
 };
 
-export const deleteItem = () => {
+export const deleteItem = (id) => {
   return client
-    .delete(`/checklistItem/1`)
+    .delete(`/checklist/${id}`)
     .then((response) => {
       console.info("Item deleted successfully:", response.data);
     })
