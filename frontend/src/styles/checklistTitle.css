@@ -3,8 +3,7 @@
   flex-direction: column;
 }
 
-.home > .checklist_title > input,
-.home > .checklist_title > .disabled {
+.home > .checklist_title > input {
   text-align: center;
   font-family: var(--font);
   font-size: 1rem;
@@ -17,11 +16,6 @@
   border: 1px solid var(--first-color);
   border-radius: 20px;
   box-shadow: 0px 3px 10px var(--first-color);
-}
-
-.home > .checklist_title > .disabled {
-  pointer-events: none;
-  border: none;
 }
 
 .home > .checklist_title > input:focus {
@@ -62,8 +56,7 @@
     align-items: center;
   }
 
-  .home > .checklist_title > input,
-  .home > .checklist_title > .disabled {
+  .home > .checklist_title > input {
     font-size: 1.5rem;
     height: 6vh;
     min-width: 60vw;

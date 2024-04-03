@@ -68,18 +68,6 @@ const add = async (req, res, next) => {
 };
 
 // The D of BREAD - Destroy (Delete) operation
-const destroy = async (req, res, next) => {
-  try {
-    const result = await tables.title.destroy(req.params.id);
-    if (result.affectedRows === 0) {
-      res.status(404).json({ msg: "titre introuvable" });
-    } else {
-      res.json({ msg: "titre supprimé avec succès" });
-    }
-  } catch (err) {
-    next(err);
-  }
-};
 
 // Ready to export the controller functions
 module.exports = {
@@ -87,5 +75,4 @@ module.exports = {
   read,
   edit,
   add,
-  destroy,
 };

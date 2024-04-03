@@ -1,12 +1,8 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 
-import { deleteItem } from "../services/checklistService";
+import "../styles/userlistItem.css";
 
-import "../styles/listItem.css";
-
-function ListItem({ items }) {
+function UserListItem() {
   const [unlock, setUnlock] = useState(true);
   const [listItem, setListItem] = useState("");
   const [isVisible, setIsVisible] = useState(true);
@@ -22,7 +18,6 @@ function ListItem({ items }) {
   const handleDeleteTitle = () => {
     setListItem("");
     setIsVisible(!isVisible);
-    deleteItem(items.id);
   };
 
   return (
@@ -34,7 +29,7 @@ function ListItem({ items }) {
             placeholder="A thing you have to do is ..."
             type="text"
             className={unlock ? "item" : "disabled"}
-            value={items.item}
+            value={listItem}
             onChange={handleChangeItem}
           />
           <div>
@@ -59,4 +54,4 @@ function ListItem({ items }) {
   );
 }
 
-export default ListItem;
+export default UserListItem;
