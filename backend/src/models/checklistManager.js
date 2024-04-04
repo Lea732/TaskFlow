@@ -12,7 +12,7 @@ class ChecklistManager extends AbstractManager {
   async create(checklist) {
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (item, title_id) values (?, ?)`,
+      `insert into ${this.table} (item, title_id) values (?, 1)`,
       [checklist.item, checklist.title_id]
     );
 
@@ -45,8 +45,8 @@ class ChecklistManager extends AbstractManager {
 
   async update(checklist) {
     const [rows] = await this.database.query(
-      `UPDATE ${this.table} SET item=?, title_id=? WHERE id=?`,
-      [checklist.item, checklist.title_id, checklist.id]
+      `UPDATE ${this.table} SET item=? WHERE id=?`,
+      [checklist.item, checklist.id]
     );
     return rows;
   }

@@ -1,23 +1,45 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React, { useState } from "react";
+
+import { addItem, updateItem, deleteItem } from "../services/checklistService";
 
 import "../styles/listItem.css";
 
-function ListItem() {
-  const [unlock, setUnlock] = useState(true);
-  const [listItem, setListItem] = useState("");
+function ListItem({ items }) {
+  const [listItem, setListItem] = useState({});
   const [isVisible, setIsVisible] = useState(true);
 
   const handleChangeItem = (event) => {
-    setListItem(event.target.value);
+    const newItem = event.target.value;
+    setListItem(newItem);
   };
 
-  const handleClickUnlock = () => {
-    setUnlock(!unlock);
+  const createItem = async () => {
+    try {
+      await addItem({ id: items.id, item: listItem, title_id: listItem });
+      console.info("Réponse du serveur: envoyé post", {
+        item: listItem,
+      });
+    } catch (error) {
+      console.error("Erreur lors de l'envoi des données au serveur:", error);
+    }
+  };
+
+  const modifyItem = async () => {
+    try {
+      console.info("items avant l'appel à updateTitle :", { listItem });
+      const response = await updateItem({ id: items.id, item: listItem });
+      console.info("Réponse du serveur:", response);
+    } catch (error) {
+      console.error("Erreur lors de l'envoi des données au serveur:", error);
+    }
   };
 
   const handleDeleteTitle = () => {
     setListItem("");
     setIsVisible(!isVisible);
+    deleteItem(items.id);
   };
 
   return (
@@ -28,24 +50,25 @@ function ListItem() {
           <input
             placeholder="A thing you have to do is ..."
             type="text"
-            className={unlock ? "item" : "disabled"}
-            value={listItem}
+            className="item"
+            defaultValue={
+              items !== undefined ? items.item : "Your checklist name"
+            }
             onChange={handleChangeItem}
           />
           <div>
-            <button
-              type="button"
-              onClick={handleClickUnlock}
-              className={unlock ? "unlocked" : "locked"}
-            >
-              {" . "}
+            <button type="button" onClick={createItem} className="unlocked">
+              {"  "}
+            </button>
+            <button type="button" onClick={modifyItem} className="locked">
+              {"  "}
             </button>
             <button
               type="button"
               className="delete"
               onClick={handleDeleteTitle}
             >
-              {" . "}
+              {"  "}
             </button>
           </div>
         </div>

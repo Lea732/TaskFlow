@@ -1,53 +1,60 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-// import addTitle from "../services/titleService";
+import { addTitle, readTitleById, updateTitle } from "../services/titleService";
 
 import "../styles/checklistTitle.css";
 
 function ChecklistTitle() {
-  const [unlock, setUnlock] = useState(true);
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState({});
 
   const handleChangeTitle = (event) => {
-    setTitle(event.target.value);
+    const newTitle = event.target.value;
+    setTitle(newTitle);
+    console.info("new title :", newTitle);
   };
 
-  const handleClickUnlock = () => {
-    setUnlock(!unlock);
+  const createTitle = async () => {
+    try {
+      await addTitle({ title });
+      console.info("Réponse du serveur: envoyé", { title });
+    } catch (error) {
+      console.error("Erreur lors de l'envoi des données au serveur:", error);
+    }
   };
 
-  const handleDeleteTitle = () => {
-    setTitle("");
+  const modifyTitle = async () => {
+    try {
+      console.info("Title avant l'appel à updateTitle :", { title });
+      await updateTitle({ title });
+      console.info("Réponse du serveur: envoyé", { title });
+    } catch (error) {
+      console.error("Erreur lors de l'envoi des données au serveur:", error);
+    }
   };
 
-  // const sendDataToBackend = async () => {
-  //   try {
-  //     await addTitle({ title });
-  //     console.info("Réponse du serveur: envoyé");
-  //   } catch (error) {
-  //     console.error("Erreur lors de l'envoi des données au serveur:", error);
-  //   }
-  // };
+  useEffect(() => {
+    readTitleById()
+      .then((data) => {
+        setTitle(data);
+        console.info("réponse du get :", data);
+      })
+      .catch((error) => console.error("Error fetching title:", error));
+  }, []);
 
   return (
     <div className="checklist_title">
       <input
         placeholder="Your checklist name"
         type="text"
-        className={unlock ? "" : "disabled"}
-        value={title}
+        value={title !== undefined ? title.title : "Your checklist name"}
         onChange={handleChangeTitle}
       />
       <div>
-        <button
-          type="button"
-          onClick={handleClickUnlock}
-          className={unlock ? "unlocked" : "locked"}
-        >
-          {" . "}
+        <button type="button" onClick={createTitle} className="unlocked">
+          {"  "}
         </button>
-        <button type="button" className="delete" onClick={handleDeleteTitle}>
-          {" . "}
+        <button type="button" onClick={modifyTitle} className="locked">
+          {"  "}
         </button>
       </div>
     </div>

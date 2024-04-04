@@ -7,41 +7,41 @@ const client = axios.create({
   timeout: 60_000,
 });
 
-export const addTitle = (checklistTitle) => {
+export const addItem = (checklistItem) => {
   return client
-    .post("/title", checklistTitle)
+    .post("/checklist", checklistItem)
     .then((response) => console.info(response))
     .catch((error) => console.error(error));
 };
 
-export const readTitle = () => {
+export const readItem = () => {
   return client
-    .get("/title")
+    .get("/checklist")
     .then((response) => response.data)
     .catch((error) => console.error(error));
 };
 
-export const readTitleById = () => {
+export const readItemById = () => {
   return client
-    .get(`/title/1`)
+    .get(`/checklist/1`)
     .then((response) => response.data)
     .catch((error) => console.error(error));
 };
 
-export const updateTitle = ({ title }) => {
+export const updateItem = ({ id, item }) => {
   return client
-    .put(`/title/1`, { title })
+    .put(`/checklist/${id}`, { item })
     .then((response) => response.data)
     .catch((error) => console.error(error));
 };
 
-// export const deleteTitle = () => {
-//   return client
-//     .delete(`/title/1`)
-//     .then((response) => {
-//       console.info("Title deleted successfully:", response.data);
-//     })
-//     .catch((error) => {
-//       console.error("Error deleting title:", error);
-//     });
-// };
+export const deleteItem = (id) => {
+  return client
+    .delete(`/checklist/${id}`)
+    .then((response) => {
+      console.info("Item deleted successfully:", response.data);
+    })
+    .catch((error) => {
+      console.error("Error deleting item:", error);
+    });
+};

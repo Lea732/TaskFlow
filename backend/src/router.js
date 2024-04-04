@@ -26,7 +26,6 @@ router.put("/checklist/:id", checklistControllers.edit);
 router.put("/title/:id", titleControllers.edit);
 
 router.delete("/checklist/:id", checklistControllers.destroy);
-router.delete("/title/:id", titleControllers.destroy);
 
 /* ************************************************************************* */
 
