@@ -19,7 +19,6 @@ function ListItem({ items }) {
     try {
       await addItem({ id: items.id, item: listItem, title_id: listItem });
       console.info("Réponse du serveur: envoyé post", {
-        id: items.id,
         item: listItem,
       });
     } catch (error) {
@@ -59,17 +58,17 @@ function ListItem({ items }) {
           />
           <div>
             <button type="button" onClick={createItem} className="unlocked">
-              {" . "}
+              {"  "}
             </button>
             <button type="button" onClick={modifyItem} className="locked">
-              {" . "}
+              {"  "}
             </button>
             <button
               type="button"
               className="delete"
               onClick={handleDeleteTitle}
             >
-              {" . "}
+              {"  "}
             </button>
           </div>
         </div>
