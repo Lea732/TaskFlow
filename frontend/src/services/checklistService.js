@@ -42,6 +42,6 @@ export const deleteItem = (id) => {
       console.info("Item deleted successfully:", response.data);
     })
     .catch((error) => {
-      console.error("Error deleting title:", error);
+      console.error("Error deleting item:", error);
     });
 };

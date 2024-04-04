@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import ApplicationName from "../components/ApplicationName";
 import ChecklistTitle from "../components/ChecklistTitle";
-import AddButton from "../components/AddButton";
+import ListItem from "../components/ListItem";
 
 import { readItem } from "../services/checklistService";
 
@@ -25,7 +25,20 @@ function Home() {
     <div className="home">
       <ApplicationName />
       <ChecklistTitle />
-      <AddButton items={items} />
+
+      <div className="list_item">
+        {items.map((item) => (
+          <ListItem items={item} />
+        ))}
+
+        <ListItem items={items} />
+        <ListItem items={items} />
+        <ListItem items={items} />
+        <ListItem items={items} />
+        <ListItem items={items} />
+        <ListItem items={items} />
+        <ListItem items={items} />
+      </div>
 
       <img
         src="https://source.unsplash.com/random/390×250/?landscape"

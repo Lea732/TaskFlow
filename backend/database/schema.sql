@@ -12,7 +12,7 @@ CREATE TABLE checklist (
   FOREIGN KEY (title_id) REFERENCES title(id)
 );
 
-INSERT INTO title (title) VALUES ("My first checklist");
+ INSERT INTO title (title) VALUES ("My first checklist");
 
 INSERT INTO checklist (item, title_id) VALUES ("Do the chores", 1);
 INSERT INTO checklist (item, title_id) VALUES ("Make dentist appointment", 1);

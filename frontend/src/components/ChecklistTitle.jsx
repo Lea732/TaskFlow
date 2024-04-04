@@ -51,10 +51,10 @@ function ChecklistTitle() {
       />
       <div>
         <button type="button" onClick={createTitle} className="unlocked">
-          {" . "}
+          {"  "}
         </button>
         <button type="button" onClick={modifyTitle} className="locked">
-          {" . "}
+          {"  "}
         </button>
       </div>
     </div>

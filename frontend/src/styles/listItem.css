@@ -45,8 +45,10 @@
 .home > .list_item > div > div > div > .unlocked,
 .home > .list_item > div > div > div > .locked,
 .home > .list_item > div > div > div > .delete {
-  width: 6vw;
-  height: 3vh;
+  width: 15px;
+  height: 15px;
+  background-size: contain;
+  background-position: center;
   border: none;
   background: none;
   background-repeat: no-repeat;
@@ -54,14 +56,17 @@
 
 .home > .list_item > div > div > div > .unlocked {
   background-image: url("../assets/checked.png");
+  background-size: 15px 15px;
 }
 
 .home > .list_item > div > div > div > .locked {
   background-image: url("../assets/edit.png");
+  background-size: 15px 15px;
 }
 
 .home > .list_item > div > div > div > .delete {
   background-image: url("../assets/delete.png");
+  background-size: 15px 15px;
 }
 
 @media screen and (min-width: 600px) {
@@ -73,13 +78,15 @@
     min-height: 5vh;
   }
 
-  .home > .list_item > div > div > div {
+  /* .home > .list_item > div > div > div {
     width: 10vw;
-  }
+  } */
 
   .home > .list_item > div > div > div > .unlocked,
   .home > .list_item > div > div > div > .locked,
   .home > .list_item > div > div > div > .delete {
-    width: 2vw;
+    width: 6vw;
+    height: 3vh;
+    background-size: 2vw 3vh;
   }
 }

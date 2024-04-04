@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
 
-import { updateItem, deleteItem } from "../services/checklistService";
+import { addItem, updateItem, deleteItem } from "../services/checklistService";
 
 import "../styles/listItem.css";
 
@@ -13,6 +13,17 @@ function ListItem({ items }) {
   const handleChangeItem = (event) => {
     const newItem = event.target.value;
     setListItem(newItem);
+  };
+
+  const createItem = async () => {
+    try {
+      await addItem({ id: items.id, item: listItem, title_id: listItem });
+      console.info("Réponse du serveur: envoyé post", {
+        item: listItem,
+      });
+    } catch (error) {
+      console.error("Erreur lors de l'envoi des données au serveur:", error);
+    }
   };
 
   const modifyItem = async () => {
@@ -46,18 +57,18 @@ function ListItem({ items }) {
             onChange={handleChangeItem}
           />
           <div>
-            <button type="button" className="unlocked">
-              {" . "}
+            <button type="button" onClick={createItem} className="unlocked">
+              {"  "}
             </button>
             <button type="button" onClick={modifyItem} className="locked">
-              {" . "}
+              {"  "}
             </button>
             <button
               type="button"
               className="delete"
               onClick={handleDeleteTitle}
             >
-              {" . "}
+              {"  "}
             </button>
           </div>
         </div>
